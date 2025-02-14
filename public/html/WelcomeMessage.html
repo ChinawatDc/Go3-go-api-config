@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API System</title>
+
+    <!-- เพิ่มการนำเข้า Prompt Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: "Prompt", sans-serif !important;
+        text-align: center;
+        background-image: url("https://img.freepik.com/free-vector/speed-light-spotlights-digital-background_23-2148821702.jpg");
+        background-size: cover;
+        background-position: center;
+
+        /* ใช้ flexbox เพื่อจัดกลาง */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* ให้ครอบคลุมทั้งหน้าจอ */
+        margin: 0; /* ลบ margin พื้นฐาน */
+      }
+      h1,
+      p,
+      .datetime {
+        font-family: "Prompt", sans-serif !important;
+      }
+      h1 {
+        font-size: 36px;
+        color: #ffd302;
+      }
+      p {
+        font-size: 20px;
+        color: #ffd302;
+      }
+      .datetime {
+        font-size: 24px;
+        color: #ffd302;
+        font-weight: bold;
+      }
+      .logo {
+        margin-bottom: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="https://differsheet.s3.ap-southeast-1.amazonaws.com/images/user/user16913/diary/be0c030656d8ea0d3892b197fa00fc67.png" width="150" height="200" class="logo" alt="Logo" />
+    <h1>ยินดีต้อนรับเข้าสู่ API</h1>
+    <p class="datetime" id="datetime"></p>
+
+    <script>
+      function updateDateTime() {
+        const now = new Date();
+        const dateTimeString = now.toLocaleString("th-TH", {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+          hour: "numeric",
+          minute: "numeric",
+          second: "numeric",
+          hour12: false,
+        });
+        document.getElementById("datetime").textContent = dateTimeString;
+      }
+
+      setInterval(updateDateTime, 1000);
+      updateDateTime();
+    </script>
+  </body>
+</html>
